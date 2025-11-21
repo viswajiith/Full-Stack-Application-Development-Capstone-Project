@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Dealers</h1>
+{% if dealers %}
+  <ul>
+    {% for d in dealers %}
+      <li><a href="{% url 'dealer_details' d.id %}">{{ d.full_name }}</a> - {{ d.state }} - {{ d.city }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No dealers found.</p>
+{% endif %}
+{% endblock %}
+

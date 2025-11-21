@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Review for dealer {{ dealer_id }}</h2>
+<form method="post">
+  {% csrf_token %}
+  <label>Rating: <input name="rating" type="number" min="1" max="5" value="5"></label><br/>
+  <label>Review:<br/><textarea name="review" rows="6" cols="60"></textarea></label><br/>
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}

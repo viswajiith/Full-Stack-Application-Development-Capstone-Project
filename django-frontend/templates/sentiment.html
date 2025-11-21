@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Sentiment Analyzer</h2>
+<form method="post">
+  {% csrf_token %}
+  <textarea name="text" rows="6" cols="80">{% if request.POST.text %}{{ request.POST.text }}{% endif %}</textarea><br>
+  <button type="submit">Analyze</button>
+</form>
+{% if result %}
+  <h3>Results</h3>
+  <pre>{{ result }}</pre>
+{% endif %}
+{% endblock %}
